@@ -216,7 +216,7 @@ static int const PFOfflineStoreMaximumSQLVariablesCount = 999;
         jsonStringTask = [[database executeQueryAsync:query withArgumentsInArray:@[ className, objectId ] block:^id(PFSQLiteDatabaseResult *_Nonnull result) {
             if (![result next]) {
                 NSError *error = [PFErrorUtilities errorWithCode:kPFErrorCacheMiss
-                                                         message:@"This object is not available in the offline cache."
+                                                         message:@"Unable to load data in offline mode, please connect to the internet."
                                                        shouldLog:NO];
                 return [BFTask taskWithError:error];
             }
